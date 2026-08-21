@@ -1,0 +1,36 @@
+{
+  "name": "biodiscovery-launchpad",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "./node_modules/.bin/next dev",
+    "build": "./node_modules/.bin/next build",
+    "start": "./node_modules/.bin/next start",
+    "test": "npm run build && node --test tests/rendered-html.test.mjs",
+    "lint": "./node_modules/.bin/eslint . --ignore-pattern dist --ignore-pattern .next",
+    "typecheck": "./node_modules/.bin/tsc --noEmit",
+    "validate": "npm run lint && npm run typecheck && npm run test",
+    "verify:posthog": "node scripts/verify-posthog-config.mjs",
+    "validate:portfolio": "npm run verify:posthog && npm run validate"
+  },
+  "dependencies": {
+    "next": "16.2.6",
+    "posthog-js": "^1.418.5",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.2.1",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.2.6",
+    "tailwindcss": "4.2.1",
+    "typescript": "5.9.3"
+  },
+  "type": "module"
+}
